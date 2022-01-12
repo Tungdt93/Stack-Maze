@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,11 @@ public class PlatformController : MonoBehaviour
     [SerializeField] private Transform theStack;
     [SerializeField] private List<GameObject> stacks = new List<GameObject>();
 
+    private GameObject firstStack;
+    private GameObject lastStack;
     public List<GameObject> Stacks { get => stacks; set => stacks = value; }
+    public GameObject FirstStack { get => firstStack; set => firstStack = value; }
+    public GameObject LastStack { get => lastStack; set => lastStack = value; }
 
     void Awake()
     {
@@ -27,6 +32,8 @@ public class PlatformController : MonoBehaviour
                 stacks.Add(child.gameObject);
             }
         }
+        firstStack = stacks.Last();
+        lastStack = stacks.First();
     }
 
     void Update()

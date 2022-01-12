@@ -7,7 +7,6 @@ public class CollisionDetertor : MonoBehaviour
     [SerializeField] private GameObject stackPrefab;
     [SerializeField] private GameObject stackHolder;
 
-    private Player player;
     private StackHolder stacks;
 
     private Rigidbody rb;
@@ -23,14 +22,12 @@ public class CollisionDetertor : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         stacks = stackHolder.GetComponent<StackHolder>();
-        player = GetComponentInParent<Player>();
         startYPosition = transform.position.y;
         yPosition = stackHolder.transform.position.y;
     }
     private void Update()
     {
         playerInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
-        moveAmount = playerInput.normalized * player.MoveSpeed * Time.deltaTime;
     }
 
     void FixedUpdate()

@@ -7,9 +7,11 @@ public class GameManager : Manager<GameManager>
 {
     [SerializeField] private GameObject platform;
     [SerializeField] private GameObject playerPrefab;
+    [SerializeField] private GameObject bridgePrefab;
 
-    private List<GameObject> stacks = new List<GameObject>();
     private GameObject player;
+    private PlatformController platformController;
+    [SerializeField] private List<GameObject> stacks = new List<GameObject>();
 
     public override void Init()
     {
@@ -21,9 +23,12 @@ public class GameManager : Manager<GameManager>
 
     public override void ManagerTask()
     {
-        stacks = platform.GetComponent<PlatformController>().Stacks;
-        Vector3 lastStackPosition = stacks.Last().transform.position;
-        Vector3 playerPosition = new Vector3(lastStackPosition.x, lastStackPosition.y + (stacks.Last().transform.localScale.y / 2), lastStackPosition.z);
+        platformController = platform.GetComponent<PlatformController>();
+        stacks = platformController.Stacks;
+        Vector3 firstStackPosition = platformController.FirstStack.transform.position;
+        Vector3 playerPosition = new Vector3(firstStackPosition.x, 
+            firstStackPosition.y + (stacks.Last().transform.localScale.y / 2f), 
+            firstStackPosition.z);
         player = Instantiate(playerPrefab, playerPosition, Quaternion.identity);
     }
 

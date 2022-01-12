@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Stack
   - StaticStack
+  - EndTrigger
+  - Bridge
   layers:
   - Default
   - TransparentFX
