@@ -6,7 +6,6 @@ using UnityEngine;
 public class StackMaze : MonoBehaviour
 {
     [SerializeField] private GameObject stackPrefab;
-
     [SerializeField] private float numberOfRows;
     [SerializeField] private float numberOfColumns;
     [SerializeField] private float spacing;

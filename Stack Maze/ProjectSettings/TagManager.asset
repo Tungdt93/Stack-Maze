@@ -8,6 +8,13 @@ TagManager:
   - StaticStack
   - EndTrigger
   - Bridge
+  - CheckPoint
+  - Wall
+  - Platform
+  - Bullet
+  - BridgePart
+  - FinishLine
+  - PlatformHolder
   layers:
   - Default
   - TransparentFX

@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2473972577940247106}
   - component: {fileID: 2473972577940247107}
-  - component: {fileID: 2473972577940247104}
+  - component: {fileID: 2163266532614672464}
   - component: {fileID: -5557212291402609728}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,6 +32,7 @@ Transform:
   m_Children:
   - {fileID: 7435412461786912959}
   - {fileID: 2473972578252236136}
+  - {fileID: 6168596296036435165}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -46,9 +47,9 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.98, y: 0.2, z: 0.98}
+  m_Size: {x: 1, y: 0.2, z: 1}
   m_Center: {x: 0, y: -0.1, z: 0}
---- !u!54 &2473972577940247104
+--- !u!54 &2163266532614672464
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -62,8 +63,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 3
+  m_Constraints: 116
+  m_CollisionDetection: 2
 --- !u!114 &-5557212291402609728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,12 +77,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31572ade588b3f04e9059d7ea0f62fe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 20
   stackPrefab: {fileID: 1899856337749076868, guid: 330cdd537db490d47a9da69a17ff9903,
+    type: 3}
+  bulletPrefab: {fileID: 447545227177273203, guid: 2e80294582711244188976da03482fb7,
     type: 3}
   visual: {fileID: 5869525008313002668}
   stackHolder: {fileID: 2473972578252236137}
-  playerStacks: []
+  bulletHolder: {fileID: 3961581232698468900}
+  defaultSpeed: 15
 --- !u!1 &2473972578252236137
 GameObject:
   m_ObjectHideFlags: 0
@@ -111,6 +114,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2473972577940247106}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3961581232698468900
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6168596296036435165}
+  m_Layer: 0
+  m_Name: BulletHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6168596296036435165
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3961581232698468900}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: -0.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2473972577940247106}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2473972578386703269
 PrefabInstance:
@@ -147,7 +180,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 27aa10c1be9cc6b4f86cf7a3c8126e42,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 27aa10c1be9cc6b4f86cf7a3c8126e42,
         type: 3}
